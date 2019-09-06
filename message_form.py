@@ -1,10 +1,10 @@
-from wtforms import Form, StringField
+from wtforms import Form, StringField, validators
 from datetime import datetime
 
 
 class MessageForm(Form):
-    user = StringField('User')
-    text = StringField('Text')
+    user = StringField('User', validators=[validators.Length(min=2, max=250)])
+    text = StringField('Text', validators=[validators.Length(min=2, max=250)])
 
 
 class Message:

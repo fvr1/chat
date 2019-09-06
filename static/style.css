@@ -1,7 +1,7 @@
 
 body {
   margin: 10 5%;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif !important;
 }
 
 img {
@@ -16,11 +16,20 @@ table {
 
 tr, th, td {
   margin: 5px;
-  border: 1px solid grey;
+  border: 1px solid #e9ecef;
   text-align: center;
+}
+
+button {
+  background-color: cornflowerblue;
+  color: white;
 }
 
 .container {
   display: flex;
   align-items: center;
+}
+
+.pagination a {
+  padding: .5em;
 }

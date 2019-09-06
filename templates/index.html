@@ -1,41 +1,51 @@
 <title>Regio</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
 
 <div class="container">  
   <div class='chat-containter'>
       <h2>Super chat</h2>
     <form method="post" role="form">
       <div class="form-group">
-            <label for="user">Nombre de usuario:</label>
-        <input type="text" class="form-control" id="user" name="user" placeholder="Como te llamas?">
-  
-        <label for="text">Mensaje:</label>
-        <input type="text" class="form-control" id="text" name="text" placeholder="Escribe un mensaje.">
+        <div>
+          <label for="user">Nombre de usuario:</label>
+          <input type="text" class="form-control" id="user" name="user" placeholder="Como te llamas?">
+        </div>
+        <div>
+            <label for="text">Mensaje:</label>
+            <input type="text" class="form-control" id="text" name="text" placeholder="Escribe un mensaje.">
+        </div>  
   
       </div>
       <button type="submit" class="btn">Enviar</button>
     </form>
 
-    
-    <table>
-      <tr>
-        <th>User</th> 
-        <th>Text</th>
-        <th>Timestamp</th>
-      </tr>
-      <tbody>
-        {% for message in messages %}
+    <div>
+      <table class="table table-hover">
         <tr>
-          <td>{{message.user}}</td>
-          <td>{{message.text}}</td>
-          <td>{{message.timestamp}}</td>
+          <th>N</th> 
+          <th>User</th> 
+          <th>Text</th>
+          <th>Timestamp</th>
         </tr>
-        {% endfor %}
-        
-      </tbody>
-    </table>
+        <tbody>
+          {% for message in messages %}
+          <tr>
+            <td>{{ loop.index + (page - 1) * per_page }}</td>
+            <td>{{message.user}}</td>
+            <td>{{message.text}}</td>
+            <td>{{message.timestamp}}</td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+      {{ pagination.links }}
+    </div>
   </div>
   <img src={{image}} alt=""/>
   
