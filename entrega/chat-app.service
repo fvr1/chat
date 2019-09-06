@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve chat-app
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/chat-app
+Environment="PATH=/home/ubuntu/chat-app/venv/bin"
+ExecStart=/home/ubuntu/chat-app/venv/bin/gunicorn --workers 1 --threads 1 --bind unix:chat-app.sock -m 007 wsgi:application
+
+[Install]
+WantedBy=multi-user.target
