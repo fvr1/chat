@@ -1,11 +1,11 @@
 <title>Regio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/index.css">
-<div class="container">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
 
-  <h2>Super chat</h2>
-
-  <div class='top-containter'>
+<div class="container">  
+  <div class='chat-containter'>
+      <h2>Super chat</h2>
     <form method="post" role="form">
       <div class="form-group">
             <label for="user">Nombre de usuario:</label>
@@ -18,25 +18,25 @@
       <button type="submit" class="btn">Enviar</button>
     </form>
 
-    <img src={{image}} alt=""/>
-  </div>
-
-  <table>
-    <tr>
-      <th>User</th> 
-      <th>Text</th>
-      <th>Timestamp</th>
-    </tr>
-    <tbody>
-      {% for message in messages %}
+    
+    <table>
       <tr>
-        <td>{{message.user}}</td>
-        <td>{{message.text}}</td>
-        <td>{{message.timestamp}}</td>
+        <th>User</th> 
+        <th>Text</th>
+        <th>Timestamp</th>
       </tr>
-      {% endfor %}
-      
-    </tbody>
-  </table>
-
+      <tbody>
+        {% for message in messages %}
+        <tr>
+          <td>{{message.user}}</td>
+          <td>{{message.text}}</td>
+          <td>{{message.timestamp}}</td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+  <img src={{image}} alt=""/>
+  
 </div>

@@ -1,9 +1,11 @@
 from wtforms import Form, StringField
 from datetime import datetime
 
+
 class MessageForm(Form):
     user = StringField('User')
     text = StringField('Text')
+
 
 class Message:
     def __init__(self, user, text):
